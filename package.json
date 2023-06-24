@@ -1,27 +1,21 @@
 {
   "name": "second-project-readsquad",
-  "version": "1.0.0",
-  "main": "app.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RafaelBrigati/second-project-readsquad.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RafaelBrigati/second-project-readsquad/issues"
-  },
-  "homepage": "https://github.com/RafaelBrigati/second-project-readsquad#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "hbs": "^4.2.0"
+    "hbs": "^4.2.0",
+    "mongoose": "^7.3.1",
+    "morgan": "^1.10.0",
+    "serve-favicon": "^2.5.0"
   },
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
