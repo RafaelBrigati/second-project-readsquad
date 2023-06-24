@@ -2,13 +2,22 @@ const express = require('express');
 const axios = require('axios')
 const router = express.Router();
 
-const allBooks = axios.get('https://openlibrary.org/people/mekBot/books/currently-reading.json')
-                    .then( response => console.log(response.data))
-                    .catch(err => console.log(err))
+// app.set('view engine', 'hbs') 
+// app.set('views', __dirname + '/views')
 
-/* GET bookspage */
-router.get("/books", (req, res, next) => {
-  res.render("books");
+
+router.get('/books',(req, res)=> {
+                    axios.get('https://openlibrary.org/people/mekBot/books/currently-reading.json')
+                    .then( response => console.log(response.data))
+                    .then(allBooks => {
+                        res.render('books', { allBooks }); 
+                    })
+                    .catch(err => { console.log(err)});
 });
+
+
+
+
+
 
 module.exports = router;
