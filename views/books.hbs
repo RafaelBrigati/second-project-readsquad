@@ -1,0 +1,13 @@
+<div class="bookSection">
+    <h1>Books Page</h1>
+    {{#each allBooks}}
+     <div>
+     <section>
+         <h1>{{work.title}}</h1>
+		 <p>{{work.author_names}}</p>
+		 <p>{{genre}}</p>
+      </section>
+ </div> 
+    {{!-- {{> partials  }} --}}
+    {{/each}}
+</div>
