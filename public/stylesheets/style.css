@@ -10,3 +10,20 @@ a {
 h1 {
   color: 15px;
 }
+.bookSection {
+  border: 1px, black;
+  flex-grow: 1;
+  flex-shrink: 1;
+  
+}
+
+.home {
+  align-items: center;
+}
+
+h1 {
+  align-items: center;
+}
+
+
+

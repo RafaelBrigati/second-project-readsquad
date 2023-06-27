@@ -1,13 +1,35 @@
-<div class="bookSection">
-    <h1>Books Page</h1>
+
+
+<div>
+   <h1>Books</h1>
     {{#each allBooks}}
-     <div>
-     <section>
-         <h1>{{work.title}}</h1>
-		 <p>{{work.author_names}}</p>
-		 <p>{{genre}}</p>
-      </section>
- </div> 
-    {{!-- {{> partials  }} --}}
+  
+
+<table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Favoutire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{work.title}}</th>
+    <td>{{work.author_names}}</td>
+       <td><button type="Add">Add</button></td>
+      
+    </tr>
+     
+   
+  </tbody>
+</table>
+
+
+    {{!-- {{ partials }} --}}
     {{/each}}
 </div>
+
+
+
