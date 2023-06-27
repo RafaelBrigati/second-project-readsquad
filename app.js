@@ -12,7 +12,7 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-hbs.registerPartials("partials_absolute_path")
+hbs.registerPartials("partials_absolute_path");
 
 const app = express();
 
