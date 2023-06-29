@@ -17,6 +17,12 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
+const router = require("express").Router();
+
+router.get("/", (req, res, next) => {
+  res.render("index");
+});
+
 // Middleware configuration
 module.exports = (app) => {
   // In development environment the app logs

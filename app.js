@@ -16,7 +16,7 @@ const hbs = require("hbs");
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
-require("./config")(app);
+require("./config/session.config")(app);
 
 // default value for title local
 const capitalize = require("./utils/capitalize");
@@ -33,6 +33,9 @@ app.use("/", booksRoutes);
 
 const userRoutes = require("./routes/user.routes");
 app.use("/", userRoutes);
+
+const signUpRoutes = require("./routes/signUp.routes");
+app.use("/", signUpRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
