@@ -17,22 +17,49 @@ h1 {
   
 }
 
-.home {
-  align-items: center;
-}
+
 
 h1 {
   align-items: center;
 }
 
 .index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  
+}
+
+#indexLogo{
   align-self: center;
+
 }
 
-.indexForm{
-  align-self: flex-end;
+#index-form{
+  align-self: center;
+
 }
 
-.indexLogo{
-  align-self: flex-start;
+
+
+footer {
+  background-color: #f2f2f2;
+  color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-image: url('/images/footer.png');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center center;
+ 
 }
+
