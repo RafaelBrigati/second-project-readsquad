@@ -21,7 +21,7 @@ require("./config/session.config")(app);
 // default value for title local
 const capitalize = require("./utils/capitalize");
 const projectName = "second-project-readsquad";
-
+app.set('view engine','hbs');
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
