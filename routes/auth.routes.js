@@ -11,16 +11,16 @@ const User = require("../models/User.model");
 const {isLoggedIn, isLoggedOut} = require('../middleware/route-guard')
 
 
-router.get("/signup", isLoggedOut, (req, res)=>{
-    res.render("auth/signup");
+router.get("/signUp", isLoggedOut, (req, res)=>{
+    res.render("auth/signUp");
 });
 
-router.post("/signup", (req, res) =>{
+router.post("/signUp", (req, res) =>{
     console.log(req.body)
   const { username, email, password } = req.body; 
   
   if(username === "" || email === "" || password === "") {
-    res.status(400).render("auth/signup", {
+    res.status(400).render("auth/signUp", {
         errorMessage:
         "All fields are mandatory. Please provide your username, email and password.",
     });
@@ -29,7 +29,7 @@ router.post("/signup", (req, res) =>{
   }
 
   if (password.length <6) {
-    res.status(400).render("auth/signup", {
+    res.status(400).render("auth/signUp", {
         errorMessage: "Your password needs to be at least 6 characters long.",
     });
 
@@ -43,13 +43,13 @@ router.post("/signup", (req, res) =>{
     return User.create({ username, email, password: hashedPassword });
    })
    .then((user) => {
-    res.redirect("/auth/login");
+    res.redirect("/login");
    })
    .catch((error) =>{
     if (error instanceof mongoose.Error.ValidationError) {
-        res.status(500).render("auth/signup", {errorMessage: error.message });
+        res.status(500).render("auth/signUp", {errorMessage: error.message });
     } else if (error.code === 11000) {
-        res.status(500).render("auth/signup", {
+        res.status(500).render("auth/signUp", {
             errorMessage:
             "Username and email need to be unique. Provide a valid username or email.",
         });
@@ -68,11 +68,7 @@ router.get("/login", isLoggedOut, (req, res) =>{
 });
 
 router.get('/userProfile', isLoggedIn, (req, res) => {
-    res.render('users/user-profile', { userInSession: req.session.currentUser})
-
-    .then(userFromDB =>{
-        re.redirect('/userProfile');
-    })
+    res.render('userProfile', { userInSession: req.session.currentUser})
     
 });
 router.post("/login", isLoggedOut, (req, res, next) => {
@@ -100,34 +96,34 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             .status(400)
             .render("auth/login", { errorMessage: "Wrong credentials."});
             return;
-        } else if (bycryptjs.compareSync(password, user.passwordHash)) {
-            res.render('users/user-profile', { user});
-            res.session.currentUser = user;
-            res.redirect('/userProfile');
+        } else if (bcrypt.compareSync(password, user.password)) {
+            req.session.currentUser = user;
+            res.render('userProfile', { user });
+   
         } else {
-            res.render('auth/login', {errorMessage: 'Incorrect password.'});
+            res.render('login', {errorMessage: 'Incorrect password.'});
         }
 
     })
     .catch(error => next(error));
 
 
-        bcrypt
-        .compare(password, user.password)
-        .then((isSamePassword) =>{
-            if (!isSamePassword) {
-                res
-                .status(400)
-                .render("auth/login", {errorMessage: "Wrong credentials."});
-                return;
-            }
+        // bcrypt
+        // .compare(password, user.password)
+        // .then((isSamePassword) =>{
+        //     if (!isSamePassword) {
+        //         res
+        //         .status(400)
+        //         .render("auth/login", {errorMessage: "Wrong credentials."});
+        //         return;
+        //     }
 
-            req.session.currentUser = user.toObject();
-            delete req.session.currentUser.password;
+        //     req.session.currentUser = user.toObject();
+        //     delete req.session.currentUser.password;
 
-            res.redirect("/");
-        })
-        .catch((err) => next(err));
+        //     res.redirect("/");
+        // })
+        // .catch((err) => next(err));
     });
 
 router.get("/logout", isLoggedIn, (req, res) => {
@@ -143,7 +139,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
 router.post('/logout', (req, res, next) =>{
     req.session.destroy(err =>{
         if (err) next(err);
-        res.redirected('/');
+        res.redirect('/');
     });
 });
 
