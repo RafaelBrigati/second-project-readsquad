@@ -21,13 +21,13 @@ const userSchema = new Schema(
         required: true,
         unique: false
       },
-      genre: {
+    genre: {
         type: String,
         trim: true,
         required: true,
         unique: false
       },
-      price: {
+    price: {
         type: Number,
         trim: false,
         required: true,
