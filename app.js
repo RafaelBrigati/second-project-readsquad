@@ -11,17 +11,27 @@ const express = require("express");
 
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
+
+
 const hbs = require("hbs");
 
+hbs.registerPartials("partials_absolute_path");
+
+const path = require('path');
+hbs.registerPartials(path.join(__dirname, 'views/partials/'));
+
+
 const app = express();
-require("./config")(app);
+
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
-require("./config/session.config")(app);
+require("./config")(app);
 
 // default value for title local
 const capitalize = require("./utils/capitalize");
 const projectName = "second-project-readsquad";
+
 app.set('view engine','hbs');
+
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
@@ -33,6 +43,7 @@ app.use("/", booksRoutes);
 
 const userRoutes = require("./routes/user.routes");
 app.use("/", userRoutes);
+
 
 const signUpRoutes = require("./routes/signUp.routes");
 app.use("/", signUpRoutes);

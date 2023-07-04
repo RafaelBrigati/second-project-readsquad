@@ -10,3 +10,65 @@ a {
 h1 {
   color: 15px;
 }
+.bookSection {
+  border: 1px, black;
+  flex-grow: 1;
+  flex-shrink: 1;
+  
+}
+
+
+
+h1 {
+  align-items: center;
+}
+
+.index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  align-items: center;
+  align-content: center;
+}
+
+
+
+
+/* 
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  
+} */
+
+#indexLogo{
+  align-self: center;
+
+}
+
+#index-form{
+  align-self: center;
+
+}
+
+
+
+footer {
+  background-color: #f2f2f2;
+  color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-image: url('/images/footer.png');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center center;
+ 
+}
+
