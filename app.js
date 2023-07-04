@@ -14,7 +14,12 @@ const express = require("express");
 
 
 const hbs = require("hbs");
+
 hbs.registerPartials("partials_absolute_path");
+
+const path = require('path');
+hbs.registerPartials(path.join(__dirname, 'views/partials/'));
+
 
 const app = express();
 
