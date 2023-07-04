@@ -36,14 +36,14 @@ h1 {
 
 
 
-=======
+/* 
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   align-content: center;
 
   
-}
+} */
 
 #indexLogo{
   align-self: center;
