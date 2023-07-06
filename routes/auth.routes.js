@@ -11,17 +11,16 @@ const User = require("../models/User.model");
 const {isLoggedIn, isLoggedOut} = require('../middleware/route-guard')
 
 
-router.get("/signUp", isLoggedOut, (req, res)=>{
-    console.log("Hi");
+router.get("/signup", isLoggedOut, (req, res)=>{
     res.render("auth/signup");
 });
 
-router.post("/signUp", (req, res) =>{
+router.post("/signup", (req, res) =>{
     console.log(req.body)
   const { username, email, password } = req.body; 
   
   if(username === "" || email === "" || password === "") {
-    res.status(400).render("auth/signUp", {
+    res.status(400).render("auth/signup", {
         errorMessage:
         "All fields are mandatory. Please provide your username, email and password.",
     });
@@ -48,7 +47,7 @@ router.post("/signUp", (req, res) =>{
    })
    .catch((error) =>{
     if (error instanceof mongoose.Error.ValidationError) {
-        res.status(500).render("auth/signUp", {errorMessage: error.message });
+        res.status(500).render("auth/signup", {errorMessage: error.message });
     } else if (error.code === 11000) {
         res.status(500).render("auth/signUp", {
             errorMessage:
@@ -99,7 +98,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             return;
         } else if (bcrypt.compareSync(password, user.password)) {
             req.session.currentUser = user;
-            res.render('userProfile', { user });
+            res.render('userProfile', { user , loggedIn:true});
    
         } else {
             res.render('login', {errorMessage: 'Incorrect password.'});

@@ -1,6 +1,15 @@
+
+<div class="signup">
+
+<div class="content">
+<div class="signupLogo">
+    <img src="./images/logoMedium.png" alt="Logo">
+</div>
+
+
+
 <div id="form">
-    <h2>Signup</h2>
-<form action="/signUp" method="post">
+ <form action="/signup" method="post">
 
     <label for="">Username:</label> 
     <input type="text" name="username" placeholder="Username">
@@ -11,6 +20,12 @@
     <label for="">Password:</label> 
     <input type="password" name="password" placeholder="**********">
      <br/>
-    <button type="submit">Sign Up</button>
+    <button type="Signup" class="btn btn-outline-dark">Sign Up</button>
+    {{errorMessage}}
 </form>
+</div>
+
+</div>
+
+
 </div>
