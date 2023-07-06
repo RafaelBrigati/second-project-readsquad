@@ -8,6 +8,13 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {{#if loggedIn}}
         
+        <h2>Welcome, {{ user.username}}!</h2>
+        <p>Hi Reader! Welcome to ReadSquad, this is your profile page!</p>
+{{!-- <button>
+    <a href="/userProfile">Reload the page</a>
+</button> --}}
+        {{else}}
+        <p> Still no logged in user, sorry!</p>
 
         {{/if}}
 
@@ -34,12 +41,5 @@
 </nav> 
 <div>
 
-{{#if user}}
-<h2>Welcome, {{ user.username}}!</h2>
-<p>Hi Reader! Welcome to ReadSquad, this is your profile page!</p>
-<button>
-    <a href="/userProfile">Reload the page</a>
-</button>
-{{else}}
-<p> Still no logged in user, sorry!</p>
-{{/if}}
+
+
