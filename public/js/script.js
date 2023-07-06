@@ -2,3 +2,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("second-project-readsquad JS imported successfully!");
 });
+
+

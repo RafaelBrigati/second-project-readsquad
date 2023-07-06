@@ -1,0 +1,13 @@
+<h2>Add new comment to {{book.title}}</h2>
+<br>
+
+<form action="/Comments/create" method="POST">
+<label for="title">Comment</label>
+<input type="text" id="comment" name="comment">
+
+<label> Plot:
+    <textarea name="notes" cols="30" rows="5"></textarea>
+</label>
+
+<button type="submit">Create Comment</button>
+</form>
