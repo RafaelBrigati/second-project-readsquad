@@ -7,9 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {{#if loggedIn}}
-        <span>
-          Welcome to {{user.username}}
-        </span>
+        
 
         {{/if}}
 
@@ -22,7 +20,7 @@
         <li class="nav-item">
           {{!-- <a class="nav-link active">Logout</a> --}}
           <form action="/logout" method="POST">
-          <button>Logout</button>
+          <button type="button" class="btn btn-light">Logout</button>
           </form>
         </li>
         
