@@ -11,18 +11,45 @@
 <div id="form">
  <form action="/signUp" method="post">
 
-    <label for="">Username:</label> 
-    <input type="text" name="username" placeholder="Username">
+    
+    {{!-- <input type="text" name="username" placeholder="Username">
     <br/>
-    <label for="">Email:</label> 
+    <label for="">Email:</label> </br>
     <input type="email" name="email" placeholder="E-Mail">
      <br/>
     <label for="">Password:</label> 
-    <input type="password" name="password" placeholder="**********">
-     <br/>
-    <button type="Signup" class="btn btn-outline-dark">Sign Up</button>
+    <input type="password" name="Password" placeholder="Password">
+     <br/> --}}
+
+     <div class="row">
+  <div class="col">
+    <input type="text" class="form-control" name="username" placeholder="Username" aria-label="Username">
+    </br>
+    </div>
+  </div>
+  <div class="col">
+    <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email">
+    </br>
+  </div>
+  <div class="col">
+    <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password">
+    </br>
+  </div>
+</div>
+</br>
+   
+   
+   
+   
+   
+   
+    <button type="Signup" class="btn btn-outline-secondary">Sign Up</button>
     {{errorMessage}}
 </form>
+
+
+
+
 </div>
 
 </div>
