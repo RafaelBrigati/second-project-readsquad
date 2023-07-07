@@ -1,20 +1,33 @@
-<div id="from">
-    <h2>Login</h2>
-
-    <form action="/login" method="POST">
-    <label> Email
-        <input type="email" name="email" placeholder="youremail@adress.com"/>
 
 
-    </label>
-
-    <label>Password
-        <input type="password" name="password" placeholder="**********"/>
-    </label>
-    <button type="submit">Login</button>
-
-    {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-    {{/if}}
-    </form>
+<div class="containerLogin">
+ <div class="signupLogo">
+    <img src="./images/logoMedium.png" alt="Logo">
 </div>
+
+<div class="form">
+<form action="/login" method="POST">
+{{!-- <label> Email <input type="email" name="email" placeholder="youremail@adress.com"/> </label>
+ <label>Password <input type="password" name="password" placeholder="**********"/></label> --}}
+
+<div class="row">
+  <div class="col">
+    <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+    </br>
+    </div>
+  </div>
+  <div class="col">
+    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+  </div>
+</div>
+</br>
+ <button type="submit" class="btn btn-outline-success">Login</button>
+
+{{#if errorMessage}}
+ <p class="error">{{errorMessage}}</p>
+ {{/if}}
+    
+ </form>
+
+
+ </div>

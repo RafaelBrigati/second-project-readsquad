@@ -16,7 +16,7 @@ router.get("/signup", isLoggedOut, (req, res)=>{
 });
 
 router.post("/signup", (req, res) =>{
-    console.log(req.body)
+    console.log("req.body", req.body)
   const { username, email, password } = req.body; 
   
   if(username === "" || email === "" || password === "") {
@@ -28,7 +28,7 @@ router.post("/signup", (req, res) =>{
     return;
   }
 
-  if (password.length <6) {
+  if (password.length<6) {
     res.status(400).render("auth/signUp", {
         errorMessage: "Your password needs to be at least 6 characters long.",
     });
