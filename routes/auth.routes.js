@@ -28,7 +28,7 @@ router.post("/signup", (req, res) =>{
     return;
   }
 
-  if (password.length<6) {
+  if (password.length < 8) {
     res.status(400).render("auth/signUp", {
         errorMessage: "Your password needs to be at least 6 characters long.",
     });
