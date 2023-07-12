@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
-const userSchema = new Schema(
+
+const bookSchema = new Schema(
   {
     id: {
         type: Number,
@@ -41,6 +41,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const Book = model("Book", bookSchema);
 
-module.exports = User;
+module.exports = Book;

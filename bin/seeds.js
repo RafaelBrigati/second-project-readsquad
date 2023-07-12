@@ -1,7 +1,7 @@
 // // bin/seeds.js
 
 // const mongoose = require('mongoose');
-// const Book = require('../models/books.model');
+// const Book = require('../models/Book.model');
 
 // const MONGO_URI = process.env.MONGODB_URI
 

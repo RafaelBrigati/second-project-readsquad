@@ -10,9 +10,7 @@
         
         <h2>Welcome, {{ user.username}}!</h2>
         <p>Hi Reader! Welcome to ReadSquad, this is your profile page!</p>
-{{!-- <button>
-    <a href="/userProfile">Reload the page</a>
-</button> --}}
+
         {{else}}
         <p> Still no logged in user, sorry!</p>
 
@@ -25,7 +23,7 @@
           <a class="nav-link" href="./books">Books</a>
         </li>
         <li class="nav-item">
-          {{!-- <a class="nav-link active">Logout</a> --}}
+         
           <form action="/logout" method="POST">
           <button type="button" class="btn btn-light">Logout</button>
           </form>
